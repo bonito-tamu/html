@@ -1,0 +1,26 @@
+<table>
+<tr><td >
+<a name="2016BBV">An Adaptive Fictitious Domain Method for elliptic problems</a>. 
+<br>
+Berrone, S. and Bonito, A. and Verani, M.
+<p>
+In the Fictitious Domain Method with Lagrange multiplier (FDM) the physical domain is embedded into a simpler but larger domain called the fictitious domain. 
+The partial differential equation is extended to the fictitious domain using a Lagrange multiplier to enforce the prescribed boundary conditions on the physical domain while all the other data are extended to the fictitious domain. 
+This lead to a saddle point system coupling the Lagrange multiplier and the extended solution of the original problem.
+At the discrete level,
+the Lagrange multiplier is approximated on subdivisions of the physical boundary while the extended solution is approximated on partitions of the fictitious domain. 
+</p>
+<p>
+A significant advantage of the FDM is that no conformity between these two meshes is required.
+However, a restrictive compatibility conditions between the mesh-sizes must be enforced to ensure that the discrete saddle point system is well-posed.
+In this paper, we present an adaptive fictitious domain method (AFDM) for the solution of elliptic problems in two dimensions.
+The method hinges upon two modules \elliptic\ and \enrich\  which iteratively increase the resolutions of the approximation of the extended solution and the multiplier, respectively.   
+The adaptive algorithm AFDM is  convergent without any compatibility condition between the two discrete spaces.
+We provide numerical experiments illustrating the performances of the proposed algorithm.
+</p>
+</td></tr>
+<tr><td align=right>
+<a href="/~bonito/Papers/2016_BBV_FD.pdf" target="_blank">[Preprint]</a>
+</td></tr>
+</table>
+<br>

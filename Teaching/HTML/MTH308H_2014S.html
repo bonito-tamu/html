@@ -1,0 +1,648 @@
+
+<html>
+<head>
+  
+    <link rel="stylesheet"
+	  href="/~bonito/Style/main.css"
+	  type="text/css"><title>Math 308: Andrea Bonito</title>
+ 
+    <meta http-equiv="content-type" content="text/html;charset=iso-8859-1"> 
+    <meta content="" name=keywords>
+    <meta content="MSHTML 5.50.4134.600" name="GENERATOR"> 
+
+</head>
+<body align="center" marginheight="0" bgcolor="#332c2c"> 
+
+  
+<!--#include virtual="/~bonito/Common/before.html" -->
+
+    <h1>Differential Equations (Honors): Spring 2014</h1> 
+    <h2>Math 308</h2>
+    
+    <TABLE CELLPADDING=3 BORDER="0" >
+      <TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=150><a class="emph">Classes</a></TD>
+	<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=460>TR 11:10am - 12:25pm in Bloc 122</td>
+      </tr>
+      <TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=150><a class="emph">Office Hours</a></TD>
+	<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=460>T 1pm-2pm, F 1pm-2pm.</td>
+      </tr>
+      <TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=150><a class="emph">Additional Help</a></TD>
+	<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=460><a target="_blank"
+	href="/courses/helpsessions.html">Help Session</a> and <a target="_blank"
+      href="/~mvorobet/Math308/WIR_S14/">Week Reviews</a> and <a target="_blank" href="http://www.math.tamu.edu/courses/calclabhelp.html">Matlab help sessions</a> are available.
+        </td>
+      </tr>
+      <TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=150><a class="emph">Textbook</a></TD>
+	<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=460>
+          W.E. Boyce and R.C. DiPrima, 
+          <i>Elementary Differential Equations and Boundary Value Problems</i>. ISBN
+      978-0-470-38334-6. </td>
+      </tr>
+      <TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=150><a class="emph">Aditional info</a></TD>
+      <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=460><a
+      href="/~bonito/Teaching/MTH308/2014_Spring_Syllabus.html">Syllabus</a></td>
+      </tr>
+      <TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=150><a class="emph">Optional Textbook:</a></TD>
+        <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=460>B.R. Hunt, R.L. Lipsman, J.E. Osborn
+          and J.M. Rosenberg, 
+          <i>Differential Equations with MATLAB</i></td>
+      </tr>
+    </table>
+    
+    <br>	
+
+
+<h3> Additional Resources </h3>
+
+<table cellpadding=3 border="0" >
+  <tr><td align="left" valign="top"
+  width=150><a class="emph">Youtube</td>
+	<td align="left" valign="top" width=460>What can be explained with Differential Equations: <a target="_blank" href="../MTH308/ode.html">examples</TD>
+  </tr>
+  <tr><td align="left" valign="top"
+  width=150><a class="emph">Complex Numbers</TD>
+    <td align="left" valign="top" width=460><a target="_blank" href="../MTH308/complex.pdf">Review</a> of complex numbers together with <a target="_blank" href="../MTH308/complex_exo.pdf">exercises</a> thanks to <a target="_blank" href="http://www2.math.umd.edu/~mboyle/">Mike Boyle</a> (UMD).</td>
+  </tr>
+  <tr><td align="left" valign="top"
+  width=150><a class="emph">Laplace Transform</TD>
+    <td align="left" valign="top" width=460><a target="_blank"
+    href="../MTH308/laplace.pdf">Table</a> of Laplace transforms and formulae
+    provided when needed for quizzes and exams.</td>
+  </tr> 
+</table>
+
+
+
+<h3>Important Dates </h3>
+
+<ul>
+  <li>
+  Exam 1: March 25th
+  </li>
+  <li> Q-drop deadline: April 14th
+  </li>
+  <li>
+  Exam 2: April 15th
+  </li>
+  <li>
+  Matlab Project: Last week of class during oral discussion
+  </li>
+  <li>
+  Final: May 2nd, 3-5 pm, Bloc 122.
+  </li>
+</ul>
+
+<h3> Useful Matlab Commands </h3>
+    
+<table cellpadding=3 border="0" >
+  <tr><td align="left" valign="top"
+  width=150><a class="emph"><a href="http://www.mathworks.com/help/techdoc/ref/meshgrid.html" target="_blank">meshgrid</a></TD>
+    <td align="left" valign="top" width=460>Rectangular grid in 2-D and 3-D space</td>
+  </tr>
+  <tr><td align="left" valign="top" width=150><a class="emph"><a href="http://www.mathworks.com/help/techdoc/ref/quiver.html" target="_blank">quiver</a></TD>
+    <td align="left" valign="top" width=460>Quiver or velocity plot</td>
+  </tr>  <tr><td align="left" valign="top" width=150><a class="emph"><a href="http://www.mathworks.com/help/techdoc/ref/ones.html" target="_blank">ones</a></TD>
+    <td align="left" valign="top" width=460>Create array of all one</td>
+  </tr>
+  <tr><td align="left" valign="top" width=150>Example to plot
+  director fields for y'=exp(-t)-2y</TD>
+    <td align="left" valign="top" width=460>[T,Y] =
+    meshgrid(-2:0.2:3,-1:0.2:2); S=exp(-T)-2*Y; quiver(T,Y,ones(size(S)),S),
+    axis tight</td>
+  </tr>
+   <tr><td align="left" valign="top"
+  width=150><a class="emph"><a href="http://www.mathworks.com/help/techdoc/ref/plot.html" target="_blank">plot</a></TD>
+    <td align="left" valign="top" width=460>2D line plot</td>
+  </tr>
+ <tr><td align="left" valign="top" width=150>Example using plot</TD>
+    <td align="left" valign="top" width=460>T =(0:0.1:2); Y=sin(T); plot(T,Y)
+    </td>
+  </tr>
+   <tr><td align="left" valign="top"
+  width=150><a class="emph"><a href="http://www.mathworks.com/help/techdoc/ref/ode23.html" target="_blank">ode45</a></TD>
+    <td align="left" valign="top" width=460>ODE solver</td>
+  </tr>
+ <tr><td align="left" valign="top" width=150>Example using ode45</TD>
+    <td align="left" valign="top" width=460>[T,Y]=ode45(@(t,y) exp(-t)-2*y,-1:0.2:2,0)
+    </td>
+  </tr>
+
+</table>
+
+
+
+<h3>Matlab Project:</h3>
+
+<a class="emph"><a href="../MTH308/matlab.pdf" target="_blank">Project</a> (due April 24th - oral discussion).
+
+<h4>Matlab Project Schedule (Thursday April 24, BLOCKER 505c)</h4>
+<TABLE CELLPADDING=3 BORDER="0" >
+<TR>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=150>
+    <a class="emph"></a>11:10
+  </TD>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=460>
+    Group Laura Min
+  </TD>
+</tr>
+<TR>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=150>
+    <a class="emph"></a>11:40
+  </TD>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=460>
+    Group Omar Wyman
+  </TD>
+</tr>
+<TR>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=150>
+    <a class="emph"></a>12:10
+  </TD>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=460>
+    Group Will Tabor
+  </TD>
+</tr>
+<TR>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=150>
+    <a class="emph"></a>2:00
+  </TD>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=460>
+    Group Matthew Carson
+  </TD>
+</tr>
+
+</table>
+
+
+
+
+<h3>Exams with Solutions</h3>
+<a class="emph"><a href="../MTH308/q1.pdf" target="_blank">Quiz 1</a>,
+<a class="emph"><a href="../MTH308/q3.pdf" target="_blank">Quiz 3</a>,
+<a class="emph"><a href="../MTH308/q4.pdf" target="_blank">Quiz 4</a>,
+<a class="emph"><a href="../MTH308/e1.pdf" target="_blank">Exam 1</a>,
+<a class="emph"><a href="../MTH308/q5.pdf" target="_blank">Quiz 5</a>,
+<a class="emph"><a href="../MTH308/e2.pdf" target="_blank">Exam 2</a>,
+
+
+
+<h3>Homework 1 (quiz 1/28)</h3>
+<TABLE CELLPADDING=3 BORDER="0" >
+<TR>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=150>
+    <a class="emph"></a>Chapter 1.1
+  </TD>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=460>
+    1,3,5,7,8,9,10,21,23,27,29,31,33
+  </TD>
+</tr>
+<TR>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=150>
+    <a class="emph"></a>Chapter 1.3
+  </TD>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=460>
+    1,2,3,4,5,6,8,11,16,17
+  </TD>
+</tr>
+<TR>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=150>
+    <a class="emph"></a>Chapter 2.1
+  </TD>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=460>
+    1,3,5,7,9,11,13,15,21,23,24,27,28,30,39,41.
+  </TD>
+</tr>
+<TR>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=150>
+    <a class="emph"></a>Chapter 2.2
+  </TD>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=460>
+  1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 22, 23, 30
+  </TD>
+</tr>
+<TR>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=150>
+    <a class="emph"></a>Chapter 2.6
+  </TD>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=460>
+      1, 3, 5, 7, 9, 11, 13, 15, 18, 23, 24, 25, 26, 27, 29, 31, 32.
+  </TD>
+</tr>
+</table>
+
+<h3>Homework 2 (quiz 2/11)</h3>
+<TABLE CELLPADDING=3 BORDER="0" >
+<tr>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=150>
+   <a class="emph"></a>Chapter 2.4
+</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=460>
+  1, 3, 5, 7, 9, 11, 13, 15, 21, 22, 23, 32.
+</td>
+</tr>
+<TR>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=150>
+    <a class="emph"></a>Chapter 2.5
+  </TD>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=460>
+    15, 20, 21, 22, 23, 24, 28. Note: the definition of stable solution is given on p.82 and 83.
+  </TD>
+</tr>
+
+<TR>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=150>
+    <a class="emph"></a>Chapter 7.1
+  </TD>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=460>
+    1,3,5,6,7
+  </TD>
+</tr>
+<TR>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=150>
+    <a class="emph"></a>Chapter 7.2
+  </TD>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=460>
+    All
+  </TD>
+</tr>
+<TR>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=150>
+    <a class="emph"></a>Chapter 7.3
+  </TD>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=460>
+    1,2,3,4,5,6
+  </TD>
+</tr>
+
+<TR>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=150>
+    <a class="emph"></a>Review
+  </TD>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=460>
+<a target="_blank" href="../MTH308/complex.pdf">complex numbers</a> (thanks to <a target="_blank" href="http://www2.math.umd.edu/~mboyle/">Mike Boyle</a>).</td>
+  </tr>
+    
+</table>
+
+
+<h3>Homework 3 (quiz 2/18)</h3>
+<TABLE CELLPADDING=3 BORDER="0" >
+<TR>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=150>
+    <a class="emph"></a>Chapter 7.3
+  </TD>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=460>
+    1,2,3,4,5,6,7,8,9,11,13,15
+
+  </TD>
+</tr>
+<TR>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=150>
+    <a class="emph"></a>Chapter 7.4
+  </TD>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=460>
+    4,5,6,7
+  </TD>
+</tr>
+<TR>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=150>
+    <a class="emph"></a>Chapter 7.5
+  </TD>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=460>
+    1,3,5,7,9,11,13,15,17,24,25,26,27,30,32,33
+  </TD>
+</tr>
+</table>
+
+
+<h3>Homework 4 (quiz 3/4)</h3>
+<TABLE CELLPADDING=3 BORDER="0" >
+<TR>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=150>
+    <a class="emph"></a>Chapter 7.6
+  </TD>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=460>
+    1,3,5,9,25,26,28
+  </TD>
+</tr>
+<TR>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=150>
+    <a class="emph"></a>Chapter 7.8
+  </TD>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=460>
+    1,3,7,9,16
+  </TD>
+</tr>
+<TR>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=150>
+    <a class="emph"></a>
+    Chapter 7.9
+  </TD>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=460>
+    1, 3, 13.
+  </TD>
+</tr>
+</table>
+  
+
+<h3>Homework 5 (no quiz but midterm exam)</h3>
+<TABLE CELLPADDING=3 BORDER="0" >
+<TR>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=150>
+    <a class="emph"></a>Chapter 3.1
+  </TD>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=460>
+  1,2,3,4,5,6,7,8,17,18,19,20,21,22,27,28
+  </TD>
+</tr>
+<TR>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=150>
+    <a class="emph"></a>Chapter 3.2
+  </TD>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=460>
+  1,2,3,4,5,7,9,11,13,14, 17, 24, 25, 27, 28
+  </TD>
+</tr>
+<TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=150>
+    <a class="emph"></a>Chapter 3.3
+  </TD>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=460>
+  1,2,3,4,5,6,7,9,11,13,15,17,19,21,23,24,27,32
+  </TD>
+</tr>
+<TR>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=150>
+    <a class="emph"></a>Chapter 3.4
+  </TD>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=460>
+    1,3,5,7,9,11,12,15,23,25,27,29,38,39
+  </TD>
+</tr>
+</table>
+
+
+<h3>Homework 6 (quiz April 8)</h3>
+<TABLE CELLPADDING=3 BORDER="0" >
+
+<TR>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=150>
+    <a class="emph"></a>Chapter 3.5
+  </TD>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=460>
+    1,3,5,7,9,10,13,15,17,27,29,30,31,32
+  </TD>
+</tr>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=150><a class="emph"></a></TD>
+    <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=460>Find a particular solution to
+    y''+y=sin(x)
+    </td>
+  </tr>
+<TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=150>
+    <a class="emph"></a>Chapter 3.6
+  </TD>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=460>
+  1,3,5,7,11,12,13,15,17,21
+  </TD>
+</tr>
+<TR>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=150>
+    <a class="emph"></a>Chapter 3.7
+  </TD>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=460>
+	1,2,3,7,11,12,25
+</TD>
+</tr>
+<TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=150>
+    <a class="emph"></a>Chapter 3.8
+  </TD>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=460>
+  5,7,9,10,11,15,16
+</TD>
+</tr>  
+</table>
+
+
+
+<h3>Homework 7 (no quiz but exam on April 15)</h3>
+<TABLE CELLPADDING=3 BORDER="0" >
+<TR>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=150>
+    <a class="emph"></a>Chapter 6.1
+  </TD>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=460>
+    1,2,3,4,5,6,7,18
+  </TD>
+</tr>
+<TR>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=150>
+    <a class="emph"></a>Chapter 6.2
+  </TD>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=460>
+    1,2,3,4,5,6,7,8,9,10,11,13,15,20,21,22,23,24,25
+  </TD>
+</tr>
+
+<TR>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=150>
+    <a class="emph"></a>Chapter 6.3
+  </TD>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=460>
+    1,3,5,7,8,9,10,11,13,14,15,17,19,20,21,22,23,24
+  </TD>
+</tr>
+</table>
+
+
+<h3>Homework 8 (no quiz but material part of the final)</h3>
+<TABLE CELLPADDING=3 BORDER="0" >
+
+<TR>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=150>
+    <a class="emph"></a>Chapter 6.4
+  </TD>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=460>
+    1,3,5,7,9,11,13, 16(b), 19(b)
+  </TD>
+</tr>
+
+<TR>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=150>
+    <a class="emph"></a>Chapter 6.5
+  </TD>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=460>
+    1,3,5,7,9,11,13,14
+  </TD>
+</tr>
+</table>
+
+
+
+
+
+<!--
+
+<h3>Homework 5 (quiz 10/1)</h3>
+<TABLE CELLPADDING=3 BORDER="0" >
+
+</table>
+
+<h3>Homework 6 (no quiz, Exam on 10/8)</h3>
+<TABLE CELLPADDING=3 BORDER="0" >
+</table>
+
+
+<h3>Homework 7 (quiz 10/15 -- cancelled)</h3>
+
+
+<h3>Homework 8 (quiz 10/22)</h3>
+<TABLE CELLPADDING=3 BORDER="0" >
+
+<TR>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=150>
+    <a class="emph"></a>Chapter 6.6
+  </TD>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=460>
+    4,6,8,10,21,22,23
+  </TD>
+</tr>
+</table>
+
+<h3>Homework 9 (quiz 10/29)</h3>
+<TABLE CELLPADDING=3 BORDER="0" >
+<TR>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=150>
+    <a class="emph"></a>Chapter 7.1
+  </TD>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=460>
+    1,2,3,4,5,6,15,16
+  </TD>
+</tr>
+<TR>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=150>
+    <a class="emph"></a>Chapter 7.2
+  </TD>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=460>
+    Read it + all exercises 
+  </TD>
+</tr>
+
+
+<h3>Homework 11 (quiz 11/12)</h3>
+<TABLE CELLPADDING=3 BORDER="0" >
+<TR>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=150>
+    <a class="emph"></a>Chapter 7.6
+  </TD>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=460>
+    1,3,5,9,25,26,28
+  </TD>
+</tr>
+<TR>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=150>
+    <a class="emph"></a>Chapter 7.8
+  </TD>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=460>
+    1,3,7,9,16
+  </TD>
+</tr>
+</table>
+
+<h3>Homework 12 (quiz 11/19)</h3>
+<TABLE CELLPADDING=3 BORDER="0" >
+<TR>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=150>
+    <a class="emph"></a>Chapter 9.1
+  </TD>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=460>
+    Read the chapter + 1,3,5,7,9,11,13,14,15,16
+  </TD>
+</tr>
+</table>
+
+
+<h3>Homework 13 (exam 11/26)</h3>
+<TABLE CELLPADDING=3 BORDER="0" >
+<TR>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=150>
+    <a class="emph"></a>Chapter 9.3
+  </TD>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=460>
+    1,3,5,7,9,11,13,14,21
+  </TD>
+</tr>
+<TR>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=150>
+    <a class="emph"></a>Chapter 9.4
+  </TD>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=460>
+    1,3
+  </TD>
+</tr>
+<TR>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=150>
+    <a class="emph"></a>Chapter 9.5
+  </TD>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=460>
+    1,3,5
+  </TD>
+</tr>
+</table>
+
+<!--
+
+
+
+<TR>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=150>
+    <a class="emph"></a>Chapter 7.3
+  </TD>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=460>
+    1,2,3,4,5,6,7,8,9,11,13,15,16,17,18,19,20,21,22,23,24,25,34
+
+  </TD>
+</tr>
+</table>
+
+<h3>Homework 13 (no quiz)</h3>
+<TABLE CELLPADDING=3 BORDER="0" >
+<TR>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=150>
+    <a class="emph"></a>Chapter 7.5
+  </TD>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=460>
+    1,3,5,7,9,11,13,15,17,24,25,26,27,30,32,33
+  </TD>
+</tr>
+<TR>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=150>
+    <a class="emph"></a>Chapter 9.3
+  </TD>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=460>
+    1,3,4
+  </TD>
+</tr>
+<TR>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=150>
+    <a class="emph"></a>Chapter 9.4
+  </TD>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=460>
+   1,3,8,9
+  </TD>
+</tr>
+<TR>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=150>
+    <a class="emph"></a>Chapter 9.5
+  </TD>
+  <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=460>
+   1,3,5
+  </TD>
+</tr>
+
+</table>
+
+
+-->
+
+<!--#include virtual="/~bonito/Common/after.html" -->

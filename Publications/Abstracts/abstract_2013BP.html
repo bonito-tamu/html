@@ -1,0 +1,44 @@
+<table>
+<tr><td >
+<a name="201iBP">Convergence Analysis of Variational and non-Variational Multigrid Algorithms for thepproximation of Fractional Powers of Elliptic Operators</a>. 
+<br>
+Bonito, A. and Pasciak, J.E.
+<p>
+We present and study a novel numerical algorithm to approximate the 
+action of T<sup>&beta;</sup>:=L<sup>-&beta;</sup> where L is a symmetric and positive
+definite unbounded operator on a Hilbert space H<sub>0</sub>.
+The numerical method is based on a representation formula for
+T<sup>-&beta;</sup>  
+in terms of two  Bochner integrals
+over t &isin; [0,1] involving
+(t<sup>2</sup>I+L)<sup>-1</sup> and $(I+t<sup>2</sup>L)<sup>-1</sup>. 
+</p>
+<p>
+To develop an approximation to T<sup>&beta;</sup>, we introduce a finite element
+approximation L<sub>h</sub> to L and base our approximation to T<sup>&beta;</sup> on
+T<sub>h</sub><sup>&beta;</sup>:= L<sub>h</sub><sup>-&beta;</sup>. The direct evaluation of T<sub>h</sub><sup>&beta;</sup>
+is extremely expensive as it involves expansion in the basis of 
+eigenfunctions for L<sub>h</sub>. The above mentioned representation formula
+holds for T<sub>h</sub><sup>-&beta;</sup> and we propose two quadrature  approximations denoted generically by
+Q<sub>h</sub><sup>&beta;</sup>.   The two major results of this paper bound the errors
+in the H<sub>0</sub> inner product of 
+T<sup>&beta;</sup>-T<sub>h</sub><sup>&beta;</sup>&Pi;<sub>h</sub> and T<sub>h</sub><sup>&beta;</sup>-Q<sub>h</sub><sup>&beta;</sup> 
+where &Pi;<sub>h</sub> is the H<sub>0</sub>-projection into the finite
+element space.
+We note that the evaluation of Q<sub>h</sub><sup>&beta;</sup> involves application of
+((t<sup>1</sup><sub>i</sub>)<sup>2</sup>I+L<sub>h</sub>)<sup>-1</sup> and (I+(t<sup>2</sup><sub>i</sub>)<sup>2</sup>L<sub>h</sub>)<sup>-1</sup> with t<sub>i</sub><sup>1</sup> and t<sub>i</sub><sup>2</sup>
+being the quadrature points.  
+Efficient solution algorithms for these
+problems are available and the problems at different quadrature points
+can be straightforwardly solved in parallel.
+Numerical experiments illustrating the theoretical estimates 
+are provided for both the
+quadrature error T<sub>h</sub><sup>&beta;</sup>-Q<sub>h</sub><sup>&beta;</sup> and the finite element error
+T<sup>&beta;</sup>-T<sub>h</sub><sup>&beta;</sup> &Pi;<sub>h</sub>. 
+</p>
+</td></tr>
+<tr><td align=right>
+<a href="/~bonito/Papers/2013_BP_FD.pdf" target="_blank">[Preprint]</a>
+</td></tr>
+</table>
+<br>

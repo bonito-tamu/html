@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lagrange Interpolation</title>
+	<script type="text/javascript" src="interface.js"></script>
+  </head>
+  <body>
+  	<H2> Lagrange Interpolation </H2>
+
+	<UL>
+		<LI> Select some interpolation points 
+             (x_0,y_0), (x_1,y_1), (x_2,y_2),...
+             by clicking on the canevat below.
+             The inteprolation polynomial is drawn interactively.</LI>
+		<LI> To select points associated to a continuous functions f=y(x), select a continuous function
+	     (1 : f(x)=sin(x), 2 : f(x)=exp(-1/x*x), 3 : f(x) piecewise linear). 
+		 </LI>
+	</UL>
+
+	<p>This "applet" is based on a original appled written by Luc Pouly (EPFL)
+	</p>
+
+	<select id="tool">
+		<option value="add">Add Point</option>
+		<option value="remove">Remove Point</option>
+		<option value="move">Move Point</option>
+	</select>
+	<select id="interp" onChange="interpolation.changeInterp(this)">
+		<option value="lagrange">Lagrange</option>
+		<option value="linear">Linear</option>
+	</select>
+	<select id="example" onChange="interpolation.changeExample(this)">
+		<option value="none">None</option>
+		<option value="sin">sin(x)</option>
+		<option value="exp">exp(-x*x)</option>
+		<option value="fct">fct.chapeau</option>
+	</select>
+    <div id="canvasDiv"></div>
+    <!--[if IE]><script type="text/javascript" src="excanvas.js"></script><![endif]-->
+    <script type="text/javascript" src="interpolation.js"></script>
+    <script type="text/javascript">
+    	 interpolation.init();
+	</script>
+  </body>
+</html>
+

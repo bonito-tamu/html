@@ -1,0 +1,237 @@
+
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+		<meta content="MSHTML 5.50.4134.600" name="GENERATOR">
+
+		<link rel="stylesheet"
+		      href="../../main.css"
+		      type="text/css"><title>Andrea Bonito @ MATH-TAMU</title>
+		
+		
+		<style type="text/css"><!--
+			       a { color: #500000;
+			       font-family: Verdana, Arial, Tahoma,
+			       Helvetica, sans-serif; 
+			       text-decoration: none}
+			       a.title { color: #500000;}
+			       td.link { padding-top: 4pt;  }
+			       td.title { color: #FFFFFF; font-size: 8pt; font-family:
+			       arial, sans-serif; background-color: inherit }-->
+		</style>
+	</head>
+
+	<body class="body">
+		
+		
+	  <p class="title_big"> Syllabus Math 308 :
+						
+	  Differential Equations <br> Spring 2011, section 520</p> 
+
+<TABLE CELLPADDING=3 BORDER="0" >
+  <TR>
+    <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=150><a class="emph">Instructor:</a></TD>
+    <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=460>Andrea Bonito, office: Bloc 641F, phone: +1 979 862 4873,
+    email: <img align=top border=0 vspace=5 src="../../pictures/email.png"></td>
+  </tr>
+  <TR>
+    <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=150><a class="emph">Classes:</a></TD>
+    <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=460>T-R 8:00 - 9:15</td>
+  </tr>
+  <TR>
+    <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=150><a class="emph">Room:</a></TD>
+    <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=460>Bloc 117 (T), Bloc 128 (R)</td>
+  </tr>
+  <TR>
+    <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=150><a class="emph">Office Hours:</a></TD>
+    <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=460>T and R 9:15-10:45</td>
+  </tr>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=150><a class="emph">Textbooks:</a></TD>
+    <TD ALIGN="LEFT" VALIGN="TOP" WIDTH=460>Brannan, James R. and Boyce, William E., 
+<i>Differential Equations: An Introduction to Modern Methods and Applications</i>, <em>First Edition</em>,
+    ISBN-13 978-0-471-65141-3</td>
+</tr>
+</TABLE>
+
+
+
+<p><a class="title">Course description and prerequisites. </a> Credit 3.0. Ordinary differential equations, solutions in series, solutions using Laplace transforms, systems of differential equations. Prerequisites: 
+MATH 251 or equivalent; knowledge of computer algebra system.</p>
+<br/>
+
+It is impossible to cover all the material in the indicated chapters and sections. 
+Some material will be omitted.
+<ul>
+<li> Chapter 1: 2 days
+<ul>
+<li>Section 1.1. Some Basic Mathematical Models; Direction Fields</li>
+<li>Section 1.2. Solutions of Some Differential Equations</li>
+</ul>
+</li>
+<li>Chapter 2: 5 days
+<ul>
+<li>Section 2.1. Linear Equations; Method of Integrating Factors - one day</li>
+<li>Section 2.2. Seperable Equations - one day</li>
+<li>Section 2.3. Modeling with First Order Equations - one day</li>
+<li>Section 2.4. Differences Between Linear and Nonlinear Equations</li>
+<li> Section 2.5. Autonomous Equations and Population Dynamics</li>
+<li>Section 2.6. Exact Equations and Integrating Factors</li>
+<li>Do 2.4, 2.5 and 2.6 in two days, doing only one representative example from 2.5</li>
+</ul>
+</li>
+<li>Chapter 3: 5 days
+<ul>
+<li>Section 3.1. Systems of Two Linear Algebraic Equations - one day</li>
+<li>Section 3.2. Systems of Two First Order Linear Differential Equations - one day</li>
+<li>Section 3.3. Homogeneous Linear Systems with Constant Coefficients - one day</li>
+<li>Section 3.4. Complex Eigenvalues - one day</li>
+<li>Section 3.6. A Brief Introduction to Nonlinear Systems - one day</li>
+</ul>
+</li>
+<li>Chapter 7: 4 days
+<ul>
+<li>Section 7.1. Autonomous Systems and Stability - one day</li>
+<li>Section 7.2. Almost Linear Systems - one day</li>
+<li>Section 7.3. Competing Species - one day</li>
+<li>Section 7.4. Predator-Prey Equations - one day</li>
+<li>Section 7.5. Periodic Solutions and Limit Cycles - Optional</li>
+<li>Section 7.6. Chaos and Strange Attractors: The Lorenz Equations - Optional</li>
+</ul>
+</li>
+<li>Chapter 4: 5 days
+<ul>
+<li>Section 4.1. Definitions and Examples</li>
+<li>Section 4.2. Theory of Second Order Linear Homogeneous Equations (Cover 4.1 and 4.2 in one day)</li>
+<li>Section 4.3. Linear Homogeneous Equations with Constant Coefficients - one day</li>
+<li>Section 4.4. Characteristic Equations with Complex Roots - one day</li>
+<li>Section 4.5. Mechanical and Electrical Vibrations - optional</li>
+<li>Section 4.6. Nonhomogeneous Equations: Method of Undetermined Coefficients - one day</li>
+<li>Section 4.7. Forced Vibrations, Frequency Response, and Resonance - optional</li>
+<li>Section 4.8. Variation of Parameters - one day</li>
+</ul>
+</li>
+<li>Chapter 5: 8 days
+<ul>
+<li>Section 5.1. Definition of the Laplace Transform - one day</li>
+<li>Section 5.2. Properties of the Laplace Transform - one day</li>
+<li>Section 5.3. The Inverse Laplace Transform - one day</li>
+<li>Section 5.4. Solving Differential Equations with Laplace Transforms - one day</li>
+<li>Section 5.5. Discontinuous Functions with Laplace Transforms - one day</li>
+<li>Section 5.6. Differential Equations with Discontinuous Forcing Functions - one day</li>
+<li>Section 5.7. Impulse Functions - one day</li>
+<li>Section 5.8. Convolution Integrals and Their Applications - one day</li>
+<li>Section 5.9. Linear Systems and Feedback Control - optional</li>
+</ul>
+</li>
+<li>Chapter A (Appendix A): 4 days
+<ul>
+<li>Section A.1. Matrices</li>
+<li>Section A.2. Systems of Linear Algebraic Equations, Linear Independence, and Rank</li>
+<li>Section A.3. Determinants and Inverses</li>
+<li>Section A.4. the Eigenvalue Problem</li>
+</ul>
+</li>
+<li>Chapter 6: 6 days
+<ul>
+<li>Section 6.1. Definitiions and Examples</li>
+<li>Section 6.2. Basic Theory of First order Linear Systems</li>
+<li>Section 6.3. Homogeneous Linear systems with Constant Coefficients</li>
+<li>Section 6.4. Complex Eigenvalues</li>
+<li>Section 6.5. Fundamental Matrices and the Exponential of a Matrix</li>
+<li>Section 6.6. Nonhomogeneous Linear Systems</li>
+</ul>
+</li>
+
+
+<p><a class="title">Minimal Outcome. </a> 
+This course is to provide students with quantitative and
+problem-solving skills for first order, 
+linear second order and systems of linear differential equations. 
+At the conclusion of this course, students should be able to:
+<ul>
+<li> Understand the concepts of solution, initial value problem and direction field.</li>
+<li> Solve first order linear differential equations.</li>
+<li> Solve second order homogeneous and non-homogeneous linear ODEs.</li>
+<li> Use elimination method to solve systems with constant coefficients.</li>
+<li> Use matrix methods to solve linear systems of ODEs/</li>
+<li> Use Laplace transform methods to solve linear systems of ODEs.</li>
+<li> Understand and apply basic numerical methods for solving.</li>
+</ul>
+
+<p><a class="title">Homework and Quizzes. </a> 
+Homework will be assigned weekly every Saturday but not collected.
+They will not be announced in class but be posted on the class web site
+one week prior the due date.
+I encourage you to discuss homework problems with your classmates, including strategies for
+solving different kinds of problems. 
+The purpose of these homework assignments is that you
+obtain practice in the techniques discussed in class. 
+Solving the problems diligently is therefore
+a vital component of your learning experience and will also prepare you for the quizzes and
+exams. 
+</p>
+
+<p>
+On a weekly to biweekly basis on the due dates we will have a brief quiz (closed book, closed notes)
+with problem related to assigned homework. 
+</p>
+
+<p><a class="title">Office Hours. </a>
+You have priority over graduate students and other people I work with
+during my office hours.
+You are welcome to stop by without appointment during the office
+hours.
+<em>Please use the office hours!</em>
+If you are not able to come during regular office hours,
+you still have the possibility to schedule 
+an appointment by email,
+I will do my best to be available.
+
+
+<p><a class="title">Grading Policies. </a> 
+Examination dates and the recipe for your final grade are as follows:
+<ul>
+<li> Quizzes: 25 %</li> 
+<li> Midterm 1 (March 1st): 25 %</li>
+<li> Midterm 2 (April 26th): 25 %</li> 
+<li> Final (May 9th): 25 %</li>
+</ul>
+
+<p><a class="title">Absences. </a>
+I request that absences including for religious holy day are announced the first two weeks
+of classes. 
+When possible, other absences have to be arranged two weeks
+prior the exam day.
+</p>
+
+<p>
+Excused absences for the midterm exam and final according to Rule seven
+(see Student Rules) will be dealt with on an individual basis, 
+but require convincing documentation. 
+</p>
+
+<p>Make-ups will <em>not</em> be given for quizzes. 
+However if you miss a quiz due to an authorized absence and you
+contact me immediately then the missed quiz will not count.
+</p>
+
+<p><a class="title">Americans with Disabilities Act (ADA) Policy Statement</a>
+The Americans with Disabilities Act (ADA) is a federal anti-discrimination statute that provides
+comprehensive civil rights protection for persons with disabilities. Among other things, this legislation
+requires that all students with disabilities be guaranteed a learning environment that provides for
+reasonable accommodation of their disabilities. If you believe you have a disability requiring an
+accommodation, please contact Disability Services, in Cain Hall, Room B118, or call 845-1637. For
+additional information visit <a href="http://disability.tamu.edu">http://disability.tamu.edu</a>.
+</p>
+
+<p><a class="title">Academic Integrity Statement and Policy</a>
+The Aggie Honor Code ''An Aggie does not lie, cheat or steal, or tolerate
+those who do'' applies, see also the Honor Council Rules and Procedures at
+<a href="http://aggiehonor.tamu.edu">http://aggiehonor.tamu.edu</a>.
+Students are strongly encouraged to work together and discuss homework problems with each
+other. However, copying or stealing work done by others is an act of academic dishonesty and
+will be persecuted according to the University policy.
+</p>
+</body>
+</html>

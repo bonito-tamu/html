@@ -1,0 +1,383 @@
+
+
+
+var interpolation = (function () {
+
+		"use strict";
+
+		var canvas,
+			context,
+			canvasWidth = 600,
+			canvasHeight = 600,
+			border = 30,
+			graphWidth = canvasWidth - 2*border,
+			graphHeight = canvasHeight - 2*border,
+			pointsX = [],
+			pointsY = [],
+			curX = -1,
+			curY = -1,
+			mouseDown = false,
+			example_number = 0,
+			addMode = 0,
+			removeMode = 1,
+			moveMode = 2,
+			clickMode = addMode, // 0 - add, 1 - remove, 2 - move
+			smoothInterp = true,
+			
+		// add a point to the interpolation set
+		addPoint = function (x, y) {
+			if (x < border || x > (canvasWidth-border))
+				return;
+			if (y < border || y > (canvasHeight-border))
+				return;
+			y = f(x, y);
+			if (pointsX.length < 1) {
+				pointsX.push(x);
+				pointsY.push(y);
+	    		return;
+       		}
+			for (var i = 0; i<pointsX.length; i += 1) {
+				var qx = pointsX[i];
+	    		if (qx == x) {
+					++x;               // on perturbe x
+					addPoint(x, y);     // appel recursif
+					return;
+	    		} 
+				else if (qx > x) {
+					pointsX.splice(i, 0, x);
+					pointsY.splice(i, 0, y);
+            		return;
+	    		}
+			}
+			pointsX.push(x);
+			pointsY.push(y);
+    	},
+
+		// remove the closest point to the passed point from the interpolation set
+		removePoint = function (x, y) {
+			var bestdist = Number.MAX_VALUE;
+        	var index = pointsX.length;
+        	for (var i = 0; i < pointsX.length; i += 1) {
+				var qx = pointsX[i];
+				var qy = pointsY[i];
+            	var dist = (qx-x)*(qx-x) + (qy-y)*(qy-y);
+            	if (dist < bestdist) {
+                	index = i;
+                	bestdist = dist;
+            	}
+        	}
+        	if(pointsX.length > 0) {
+				pointsX.splice(index, 1);
+				pointsY.splice(index, 1);
+			}
+    	},
+
+		f = function (x, y) {
+			switch(example_number) {
+				case 1: 
+					return f_1(x);
+				case 2: 
+					return f_2(x);
+				case 3: 
+					return f_3(x);
+				default:
+					return y;
+			}
+		},
+
+		// Example functions - to be drawn in red - selected from pulldown
+		f_1 = function (x) {
+			var k = graphHeight*0.5;
+         	var y = canvasHeight*0.5 - Math.sin((x-border)*2*Math.PI/graphWidth)*k;
+         	return Math.floor(y);
+    	},
+    	f_2 = function (x) {
+			var x_m = canvasWidth*0.5;
+			var y = canvasHeight - border - Math.exp(-(x-x_m)*(x-x_m)*5.e-4) * graphHeight;
+			return Math.floor(y);
+    	},
+    	f_3 = function (x) {
+			var x_m = canvasWidth*0.5;
+			var alpha;
+			if (x<x_m) 
+				alpha = graphHeight/(border-x_m);
+			else
+				alpha = graphHeight/(canvasWidth-border-x_m);
+			var y = border + (x-x_m)*alpha;
+			return Math.floor(y);
+    	},
+
+		clearCanvas = function () {
+			context.clearRect(0,0,canvasWidth,canvasHeight);
+		},
+
+		drawBasicImage = function () {
+
+        	// draw a frame around the window
+			context.beginPath();
+			context.rect(0, 0, canvasWidth-1, canvasHeight-1);
+			context.fillStyle = 'white';
+			context.fill();
+			context.strokeStyle = 'black';
+			context.lineWidth = 2;
+			context.stroke();
+			context.beginPath();
+			context.rect(3, 3, canvasWidth-7, canvasHeight-7);
+			context.fillStyle = 'white';
+			context.fill();
+			context.strokeStyle = 'black';
+			context.lineWidth = 2;
+			context.stroke();
+
+			// draw the x-axis and the y-axis
+			context.beginPath();
+			context.moveTo(border, border);
+			context.lineTo(border, canvasHeight-border);
+			context.moveTo(border, canvasHeight-border);
+			context.lineTo(canvasWidth-border, canvasHeight-border);
+			context.strokeStyle = 'blue';
+			context.stroke();
+			context.font="16px Georgia";
+			context.fillStyle="blue";
+			context.fillText("y", 50, 50);
+			context.fillText("x", canvasWidth - 50, canvasHeight - 50);
+
+
+			// draw the arrows
+			//g.drawLine(30, 30, 25, 40);
+			//g.drawLine(30, 30, 35, 40);
+			//g.drawLine(d.width-30, d.height-30, d.width-40, d.height-35);
+			//g.drawLine(d.width-30, d.height-30, d.width-40, d.height-25);
+			//g.drawString("y", 50, 50);
+			//g.drawString("x", d.width-50, d.height-50);
+			//g.setColor(Color.black);
+
+
+	        //draw the curve given in the example
+			if (example_number >0) {
+				var i;
+	    		switch(example_number) {
+				case 1:
+					for (i = border+1; i<canvasWidth-border; i+=1) {
+						context.beginPath();
+						context.moveTo(i-1, f_1(i-1));
+						context.lineTo(i, f_1(i));
+						context.strokeStyle = 'red';
+						context.stroke();
+					}
+					break;
+				case 2:
+					for (i = border+1; i<canvasWidth-border; i+=1) {
+						context.beginPath();
+						context.moveTo(i-1, f_2(i-1));
+						context.lineTo(i, f_2(i));
+						context.strokeStyle = 'red';
+						context.stroke();
+					}
+					break;
+				case 3:
+					for (i = border+1; i<canvasWidth-border; i+=1) {
+						context.beginPath();
+						context.moveTo(i-1, f_3(i-1));
+						context.lineTo(i, f_3(i));
+						context.strokeStyle = 'red';
+						context.stroke();
+					}
+					break;
+	    		}
+			}
+
+	        //test if the vector is empty
+			if (pointsX.length < 1) return;
+	
+			context.font="16px Georgia";
+			context.fillStyle="black";
+			//draw the points
+			if(pointsX.length == 1)
+	   			context.fillText("Il y a "+pointsX.length+" point d'interpolation", canvasWidth-250, border);
+			else    
+	   			context.fillText("Il y a "+pointsX.length+" points d'interpolation", canvasWidth-250, border);
+			for (var i = 0; i<pointsX.length; i+=1) {
+				var qx = pointsX[i];
+				var qy = pointsY[i];
+				context.beginPath();
+				context.rect(qx-4, qy-4, 8, 8);
+				context.fillStyle = 'black';
+				context.fill();
+			}
+ 
+		},
+
+		drawComplexImage = function () {	
+
+			if (pointsX.length < 1) return;
+	
+			//draw the interpolation curve
+			var value, buff = 0.0, prod;
+			if (smoothInterp){
+	    		var lambda = [];
+	    		for (var j = 0; j<pointsX.length; j+=1) {
+					lambda.push(1.0);
+					var px = pointsX[j];
+					var py = pointsY[j];
+					for (var k=0; k<pointsX.length; k+=1) {
+						var qx = pointsX[k];
+		    			if (k != j) 
+							lambda[j]=lambda[j]*(px-qx);
+					}
+					lambda[j] = py/lambda[j];
+	    		}
+	    		//int i_begin = ((Point)points.firstElement()).x;
+	    		//int i_end   = ((Point)points.lastElement()).x;
+	    		var i_begin = border;
+	    		var i_end   = canvasWidth-border;
+	    		for (var i = i_begin; i<i_end+1; i+=1) {
+					value = 0.0;
+	        		prod = 1.0;
+	        		var j = 0, diff;
+					var px, py;
+					do {
+						px = pointsX[j];
+						py = pointsY[j];
+		    			diff = i - px;
+		    			value = value + lambda[j]/diff;
+		    			prod  = prod * diff;
+		    			j+=1;
+	        		} while(j<pointsX.length && diff != 0);
+
+		 			if (diff == 0) 
+						value = py;
+		 			else 
+						value = value * prod;
+		 			if (value<0) 
+						value = 0;
+		 			if (value>canvasHeight) 
+						value = canvasHeight;
+	         		if (i>i_begin) {
+						context.beginPath();
+						context.moveTo(i-1, Math.floor(buff));
+						context.lineTo(i, Math.floor(value));
+						context.strokeStyle = 'black';
+						context.stroke();
+	         		}
+	         		buff = value;
+            	}
+			}
+			else {
+	    		//the points are ordered
+	    		if (pointsX.length>1) {
+					for (var j = 0; j<pointsX.length-1; j+=1) {
+						var px = pointsX[j];
+						var py = pointsY[j];
+						var qx = pointsX[j+1];
+						var qy = pointsY[j+1];
+						context.beginPath();
+						context.moveTo(px, py);
+						context.lineTo(qx, qy);
+						context.strokeStyle = 'black';
+						context.stroke();
+					}
+	    		}
+			}
+    	},
+
+		redraw = function () {
+			clearCanvas();
+			drawBasicImage();
+			drawComplexImage();
+		},
+
+		createUserEvents = function () {
+
+			var click = function (e) {
+				mouseDown = true;
+				drag(e);
+			},
+
+			drag = function (e) {
+				var select = document.getElementById('tool');
+				clickMode = select.selectedIndex;
+				if (e.changedTouches) {
+					curX = e.changedTouches[0].pageX - this.offsetLeft;
+					curY = e.changedTouches[0].pageY - this.offsetTop;
+				} else {
+					curX = e.pageX - this.offsetLeft;
+					curY = e.pageY - this.offsetTop;
+				}
+				if (clickMode == moveMode) {
+					if (mouseDown == false)
+						return;
+					removePoint(curX, curY);
+					addPoint(curX, curY);
+				}
+				redraw();
+				// Prevent the whole page from dragging if on mobile
+				e.preventDefault();
+			},
+
+			release = function () {
+				if (clickMode == addMode)
+					addPoint(curX, curY);
+				else if (clickMode == removeMode)
+					removePoint(curX, curY);
+
+				redraw();
+				mouseDown = false;
+			},
+
+			cancel = function () {
+				mouseDown = false;
+			};
+
+			// Add mouse event listeners to canvas element
+			canvas.addEventListener("mousedown", click, false);
+			canvas.addEventListener("mousemove", drag, false);
+			canvas.addEventListener("mouseup", release);
+			//canvas.addEventListener("mouseout", cancel, false);
+
+			// Add touch event listeners to canvas element
+			canvas.addEventListener("touchstart", click, false);
+			canvas.addEventListener("touchmove", drag, false);
+			canvas.addEventListener("touchend", release, false);
+			//canvas.addEventListener("touchcancel", cancel, false);
+		},
+
+		init = function () {
+			// Create the canvas (Neccessary for IE because it doesn't know what a canvas element is)
+			canvas = document.createElement('canvas');
+			canvas.setAttribute('width', canvasWidth);
+			canvas.setAttribute('height', canvasHeight);
+			canvas.setAttribute('id', 'canvas');
+			document.getElementById('canvasDiv').appendChild(canvas);
+			if (typeof G_vmlCanvasManager !== "undefined") {
+				canvas = G_vmlCanvasManager.initElement(canvas);
+			}
+			context = canvas.getContext("2d"); // Grab the 2d canvas context
+			// Note: The above code is a workaround for IE 8 and lower. Otherwise we could have used:
+			//     context = document.getElementById('canvas').getContext("2d");
+			redraw();
+			createUserEvents();
+		},
+
+		changeInterp = function (select) {
+			smoothInterp = (select.selectedIndex == 0);
+			redraw();
+		},
+
+		changeExample = function (select) {
+			example_number = select.selectedIndex;
+			example_number = Math.min(example_number, 3);
+			example_number = Math.max(example_number, 0);
+
+			for (var i=0; i < pointsX.length; i+=1) {
+				pointsY[i] = f(pointsX[i], pointsY[i]);
+			}
+			redraw();
+		};
+		
+	return {
+		init: init,
+		changeInterp: changeInterp,
+		changeExample: changeExample
+	};
+}());

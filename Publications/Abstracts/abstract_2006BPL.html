@@ -1,0 +1,52 @@
+<table>
+<tr><td >
+<a name="2006BPL">Numerical Simulation of 3D viscoelastic flows with
+  free surfaces</a>. <br>
+Bonito, A. and Picasso, M. and Laso, M.
+<p>
+A numerical model is presented for the simulation of 
+viscoelastic flows with complex free surfaces in three space dimensions. 
+The mathematical formulation of 
+the model is similar to that of the 
+volume of fluid (VOF) method, but the numerical procedures are different. 
+</p>
+<p>
+A splitting method is used for the time discretization. 
+The prediction step consists
+in solving three advection problems, one for the volume fraction of liquid
+(which allows the new liquid domain to be obtained), 
+one for the 
+velocity field, one for the
+extra-stress.
+The correction step corresponds to
+solving an Oldroyd-B fluid flow problem without advection 
+in the new liquid domain.
+</p>
+<p>
+Two different grids are used for the space discretization. 
+The three advection problems are solved on a fixed, structured grid made 
+out of small cubic cells, using a forward characteristics method. 
+The Oldroyd-B problem without advection
+is solved using continuous, piecewise
+linear stabilized finite elements on a fixed, unstructured mesh
+ of tetrahedrons.
+</p>
+<p>
+Efficient post-processing algorithms enhance the quality of 
+the numerical solution. A hierarchical data
+structure reduces the memory requirements.
+</p>
+<p>
+Convergence of the numerical method is checked for the pure 
+extensional flow and the filling of a tube.
+Numerical results are presented for the stretching of a filament.
+Fingering instabilities are obtained when the aspect ratio is large.
+Also, results pertaining to jet buckling are reported.
+</p>
+</td></tr>
+<tr><td align=right>
+		<a href="/~bonito/Papers/2006_BonitoPicassoLaso.pdf" target="_blank">[Preprint]</a>
+	    </td></tr>
+
+</table>
+<br>
